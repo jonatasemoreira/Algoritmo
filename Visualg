@@ -1,0 +1,63 @@
+algoritmo "VERSAO FINAL"
+  var VP, GE, RF,VPT, GET, RFT, PDT, RPT, ETD, X,ENTRADA, V01,V02,V03,V04,V05,V06,V07,V08,V09,V10,V11,V12,V13,V14,V15 : real
+ inicio
+   VPT <- 0
+   GET <- 0
+   RFT <- 0
+   RPT <- 1
+         Escreva ("Quantos produtos vai vender? ")
+         Leia (PDT)
+      Repita 
+         Escreva ("Qual o valor do produto? R$ ")
+         leia (VP)
+
+         Escreva ("Qual o valor da GE? R$ ")
+         Leia (GE)
+
+         Escreva ("Qual o valor da RF? R$ ")
+         Leia (RF)
+         RPT <- RPT + 1
+         VPT <- VPT + VP
+         GET <- GET + GE
+         RFT <- RFT + RF
+      Ate RPT > PDT
+      Escreva ("Qual o valor da entrada? R$ ")
+   Leia (ENTRADA)
+ 
+   Escreva ("Vai parcelar em quantas vezes? ")
+   Leia (X)
+
+   V01 <- (VPT - ENTRADA)
+   V02 <- (V01 / X) 
+   V03 <- (V01 + GET)
+   V04 <- (V01 + GET) / X
+   V05 <- (V01 + RFT)
+   V06 <- (V01 + RFT) / X
+   V07 <- (V01 + GET + RFT)
+   V08 <- (V07 / X)
+   V09 <- (V04 - V02)
+   V10 <- (V06 - V02)
+   V11 <- (V01 * 5) / 100
+   V12 <- (V03 * 5) / 100
+   V13 <- (V05 * 5 ) / 100
+   V14 <- (V07 * 5) / 100
+   V15 <- (V08 - V02)
+   Escreva ("========================================")
+   Escreva ("Sem GE o valor ficará ",V02," por parcela, totalizando ",V01, " Pagando com o AME volta ",V11, " reais.")
+   Escreva ("========================================")
+   Se GET >= 1 entao 
+           Escreva ("Com a GE, o valor ficará ", V04, " por parcela, irá pagar apenas ", V09, " reais a mais por parcela, totalizando ", V03,". Pagando com o AME volta ",V12, " reais.")
+Escreva ("========================================")
+   Senao    
+   FimSe
+   Se RFT >= 1 entao 
+            Escreva ("Com a RF, o valor ficará ",V06, " por parcela, irá pagar apenas ", V10, " reais a mais por parcela, totalizando ", V05,". Pagando com o AME volta ",V13, " reais.")
+   Escreva ("=========================================")
+   Senao 
+   Fimse
+   Se GET > 1 e RFT > 1 entao
+            Escreva ("Com a GE e RF o valor ficará ",V08, " por parcela, irá pagar apenas ",V15," reais a mais por parcela, totalizando ", V07,". Pagando com o AME volta ",V14, " reais.")
+   Escreva ("=========================================")
+   Senao 
+   Fimse
+fimalgoritmo
